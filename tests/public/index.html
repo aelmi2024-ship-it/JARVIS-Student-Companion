@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0f14">
+  <meta name="description" content="JARVIS is a voice-first student dashboard for assignments, deadlines, and focused academic planning.">
+  <title>JARVIS · Student Companion</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>JARVIS</strong><small>STUDENT OS</small></span>
+      </div>
+
+      <nav class="nav-list" aria-label="Workspace">
+        <button class="nav-item is-active" type="button" data-page="overview" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">◌</span><span>Overview</span>
+        </button>
+        <button class="nav-item" type="button" data-page="assignments">
+          <span class="nav-icon" aria-hidden="true">▤</span><span>Assignments</span><b id="assignmentBadge">0</b>
+        </button>
+        <button class="nav-item" type="button" data-page="planner">
+          <span class="nav-icon" aria-hidden="true">◷</span><span>Planner</span>
+        </button>
+        <button class="nav-item" type="button" data-page="grades">
+          <span class="nav-icon" aria-hidden="true">◎</span><span>Grade forecast</span>
+        </button>
+        <button class="nav-item" type="button" data-page="campus">
+          <span class="nav-icon" aria-hidden="true">⌂</span><span>Campus</span>
+        </button>
+        <button class="nav-item" type="button" data-page="settings">
+          <span class="nav-icon" aria-hidden="true">◇</span><span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <section class="source-card" aria-labelledby="sourceLabel">
+        <p class="micro-label" id="sourceLabel">DATA SOURCE</p>
+        <div class="source-row">
+          <span class="source-logo">C</span>
+          <span><strong>Canvas</strong><small id="sourceDescription">Safe sample data</small></span>
+          <i class="status-light" id="sourceLight" aria-label="Demo mode"></i>
+        </div>
+        <button class="secondary-button full-width" id="openConnection" type="button">Manage connection</button>
+      </section>
+
+      <div class="profile-row">
+        <span class="avatar" id="profileInitials">JL</span>
+        <span><strong id="profileName">Jordan Lee</strong><small id="profileMeta">Computer Science · Junior</small></span>
+      </div>
+    </aside>
+
+    <main class="workspace" id="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <div class="date-context"><i></i><span id="currentDate">Today</span></div>
+        <div class="topbar-actions">
+          <span class="mode-pill" id="modePill"><i></i><span id="modeLabel">Demo mode</span></span>
+          <button class="icon-button" id="quickVoice" type="button" aria-label="Talk to JARVIS" title="Talk to JARVIS">◉</button>
+        </div>
+      </header>
+
+      <section class="page-view is-active" data-view="overview" aria-labelledby="overviewTitle">
+        <div class="page-heading hero-heading">
+          <div>
+            <p class="eyebrow"><span></span> YOUR DAY, IN CONTEXT</p>
+            <h1 id="overviewTitle">Good <span id="timeOfDay">evening</span>, <em id="firstName">Jordan</em>.</h1>
+            <p id="overviewSummary">Loading your academic picture…</p>
+          </div>
+          <button class="shortcut-hint" id="focusAsk" type="button"><kbd>Ctrl</kbd><kbd>K</kbd><span>Ask JARVIS</span></button>
+        </div>
+
+        <div class="overview-grid">
+          <div class="overview-main">
+            <section class="focus-card" id="focusCard" aria-labelledby="focusTitle">
+              <div class="focus-card-top">
+                <span class="priority-chip">START HERE</span>
+                <span id="focusCourse">COURSE</span>
+              </div>
+              <div class="focus-card-body">
+                <div>
+                  <p class="micro-label">NEXT PRIORITY</p>
+                  <h2 id="focusTitle">Loading assignment…</h2>
+                  <p id="focusDescription"></p>
+                </div>
+                <div class="progress-ring" id="progressRing" aria-label="Assignment progress"><span id="focusProgress">0%</span></div>
+              </div>
+              <div class="focus-footer">
+                <div><small>DUE</small><strong id="focusDue">—</strong></div>
+                <div><small>ESTIMATED</small><strong id="focusEstimate">—</strong></div>
+                <button class="primary-button" id="planFocus" type="button">Build a plan <span>→</span></button>
+              </div>
+            </section>
+
+            <section class="stats-grid" aria-label="Academic summary">
+              <article><span class="stat-icon lime">↗</span><div><strong id="dueSoonCount">0</strong><small>Due in 7 days</small></div></article>
+              <article><span class="stat-icon teal">✓</span><div><strong id="progressCount">0</strong><small>In progress</small></div></article>
+              <article><span class="stat-icon coral">◷</span><div><strong id="focusHours">0h</strong><small>Estimated work</small></div></article>
+            </section>
+
+            <section class="smart-signal-grid" aria-label="Smart workload signals">
+              <article class="signal-card warning" id="triageCard">
+                <span class="signal-icon">!</span>
+                <div><p class="micro-label">WORKLOAD TRIAGE</p><strong id="triageTitle">Scanning deadlines…</strong><p id="triageText"></p></div>
+                <button class="text-button" type="button" data-go-page="planner">Fix the week →</button>
+              </article>
+              <article class="signal-card wellbeing">
+                <span class="signal-icon">◇</span>
+                <div><p class="micro-label">WELLBEING CHECK</p><strong id="wellbeingTitle">How is your workload feeling?</strong><p id="wellbeingText">Your answer stays in this browser and adjusts the planning suggestion.</p></div>
+                <div class="checkin-buttons" aria-label="Workload check-in">
+                  <button type="button" data-checkin="good">Good</button>
+                  <button type="button" data-checkin="stretched">Stretched</button>
+                  <button type="button" data-checkin="overloaded">Overloaded</button>
+                </div>
+              </article>
+            </section>
+
+            <section class="assistant-card" id="assistantCard" aria-labelledby="assistantTitle">
+              <div class="assistant-header">
+                <span class="assistant-orb" aria-hidden="true"><i></i><i></i><i></i></span>
+                <div><p class="micro-label">ACADEMIC COPILOT</p><h2 id="assistantTitle">Ask JARVIS</h2></div>
+                <span class="online-label"><i></i> Ready</span>
+              </div>
+              <div class="conversation" id="conversation" aria-live="polite">
+                <div class="message assistant-message">I’ve reviewed your demo workload. Ask me what to prioritize, when something is due, or how to break a task into steps.</div>
+              </div>
+              <form class="ask-form" id="askForm">
+                <label class="sr-only" for="askInput">Ask JARVIS a question</label>
+                <input id="askInput" name="message" type="text" autocomplete="off" maxlength="2000" placeholder="What should I work on first?">
+                <button class="voice-button" id="voiceButton" type="button" aria-label="Use voice input" aria-pressed="false">◉</button>
+                <button class="send-button" type="submit" aria-label="Send message">↑</button>
+              </form>
+              <div class="prompt-chips" aria-label="Suggested questions">
+                <button type="button" data-prompt="What should I work on first?">Pick my priority</button>
+                <button type="button" data-prompt="What is due this week?">Upcoming deadlines</button>
+                <button type="button" data-prompt="Break down my next assignment">Build a study plan</button>
+              </div>
+              <p class="voice-status" id="voiceStatus" role="status">Type a question or use the microphone.</p>
+            </section>
+          </div>
+
+          <aside class="day-rail" aria-labelledby="dayTitle">
+            <div class="section-title-row"><div><p class="micro-label">IN YOUR ORBIT</p><h2 id="dayTitle">Today</h2></div><button class="text-button" type="button" data-go-page="planner">Open planner →</button></div>
+            <div class="timeline" id="todayTimeline"></div>
+            <div class="insight-card">
+              <span class="insight-icon">✦</span>
+              <p class="micro-label">JARVIS INSIGHT</p>
+              <strong id="insightTitle">Protect your focus window.</strong>
+              <p id="insightText">Your best open block is enough to move the top assignment forward.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page-view" data-view="assignments" aria-labelledby="assignmentsTitle" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow"><span></span> ACADEMIC LOAD</p><h1 id="assignmentsTitle">Assignments, <em>made clear.</em></h1><p>Search, filter, and turn any Canvas task into a concrete next action.</p></div>
+        </div>
+        <div class="filter-bar">
+          <label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search assignments</span><input id="assignmentSearch" type="search" placeholder="Search assignments"></label>
+          <label><span class="sr-only">Filter by course</span><select id="courseFilter"><option value="all">All courses</option></select></label>
+          <label><span class="sr-only">Filter by status</span><select id="statusFilter"><option value="active">Active</option><option value="all">All statuses</option><option value="in-progress">In progress</option><option value="not-started">Not started</option><option value="completed">Completed</option></select></label>
+        </div>
+        <div class="assignment-grid" id="assignmentGrid"></div>
+        <div class="empty-state" id="assignmentEmpty" hidden><span>⌕</span><h2>No assignments found</h2><p>Try clearing a filter or using a different search.</p></div>
+      </section>
+
+      <section class="page-view" data-view="planner" aria-labelledby="plannerTitle" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow"><span></span> FOCUS PLANNER</p><h1 id="plannerTitle">Make time <em>visible.</em></h1><p>Combine deadlines with realistic focus blocks. Your added plans stay in this browser.</p></div>
+        </div>
+        <div class="planner-grid">
+          <section class="panel" aria-labelledby="queueTitle">
+            <div class="section-title-row"><div><p class="micro-label">RECOMMENDED ORDER</p><h2 id="queueTitle">Priority queue</h2></div><span class="small-pill">Auto-ranked</span></div>
+            <div class="priority-list" id="priorityList"></div>
+          </section>
+          <section class="panel" aria-labelledby="scheduleTitle">
+            <div class="section-title-row"><div><p class="micro-label">YOUR SCHEDULE</p><h2 id="scheduleTitle">Focus blocks</h2></div><button class="text-button danger" id="resetPlanner" type="button">Reset custom</button></div>
+            <form class="planner-form" id="plannerForm">
+              <label>Task name<input name="title" required maxlength="80" placeholder="Study for hashing quiz"></label>
+              <label>Date<input name="date" type="date" required></label>
+              <label>Time<input name="time" type="time" required></label>
+              <button class="primary-button" type="submit">Add block <span>+</span></button>
+            </form>
+            <div class="schedule-list" id="scheduleList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page-view" data-view="grades" aria-labelledby="gradesTitle" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow"><span></span> GRADE INTELLIGENCE</p><h1 id="gradesTitle">Know the score <em>before finals.</em></h1><p>Use syllabus weights to test outcomes. Demo grade data stays in your browser and is never submitted anywhere.</p></div>
+        </div>
+        <div class="grade-layout">
+          <section class="panel grade-controls" aria-labelledby="calculatorTitle">
+            <div class="section-title-row"><div><p class="micro-label">WHAT-IF CALCULATOR</p><h2 id="calculatorTitle">Forecast a course</h2></div><span class="small-pill">Interactive</span></div>
+            <label class="grade-field">Course<select id="gradeCourse"></select></label>
+            <label class="grade-field">Expected score on <span id="finalName">final</span><div class="range-row"><input id="finalScore" type="range" min="0" max="100" value="85"><input id="finalScoreNumber" type="number" min="0" max="100" value="85" aria-label="Expected final score percent"><span>%</span></div></label>
+            <label class="grade-field">Target course grade<div class="range-row compact-number"><input id="targetGrade" type="number" min="0" max="100" value="90"><span>%</span></div></label>
+            <p class="calculator-note">This estimate assumes the category weights entered from the syllabus are accurate and no curve or dropped scores apply.</p>
+          </section>
+          <section class="grade-results" aria-live="polite">
+            <article class="grade-result primary-result"><p class="micro-label">PROJECTED FINAL GRADE</p><strong id="projectedGrade">—</strong><span id="projectedLetter">—</span><p id="projectedSummary"></p></article>
+            <article class="grade-result"><p class="micro-label">CURRENT GRADE</p><strong id="currentGrade">—</strong><p>Based on completed weighted categories.</p></article>
+            <article class="grade-result"><p class="micro-label">SCORE NEEDED</p><strong id="neededScore">—</strong><p id="neededSummary">Choose a target to calculate.</p></article>
+          </section>
+        </div>
+        <section class="panel grade-breakdown-panel" aria-labelledby="breakdownTitle">
+          <div class="section-title-row"><div><p class="micro-label">SYLLABUS WEIGHTS</p><h2 id="breakdownTitle">Grade breakdown</h2></div><span id="weightCheck" class="small-pill">100% total</span></div>
+          <div class="grade-breakdown" id="gradeBreakdown"></div>
+        </section>
+      </section>
+
+      <section class="page-view" data-view="campus" aria-labelledby="campusTitle" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow"><span></span> BEYOND THE CLASSROOM</p><h1 id="campusTitle">College life, <em>without the conflict.</em></h1><p>JARVIS checks campus events against classes, focus blocks, and deadlines before recommending a fit.</p></div>
+        </div>
+        <div class="campus-layout">
+          <section class="campus-event-grid" id="campusEventGrid" aria-label="Upcoming campus events"></section>
+          <aside class="panel free-time-panel" aria-live="polite">
+            <span class="settings-icon">◷</span>
+            <p class="micro-label">FREE TIME FINDER</p>
+            <h2 id="freeTimeTitle">Pick an event</h2>
+            <p id="freeTimeText">I’ll check it against your schedule and nearest deadline.</p>
+            <div class="availability-result" id="availabilityResult" hidden></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page-view" data-view="settings" aria-labelledby="settingsTitle" hidden>
+        <div class="page-heading">
+          <div><p class="eyebrow"><span></span> CONTROL CENTER</p><h1 id="settingsTitle">Settings &amp; <em>connections.</em></h1><p>Control data sources, voice behavior, and how this showcase runs.</p></div>
+        </div>
+        <div class="settings-grid">
+          <section class="panel settings-panel">
+            <span class="settings-icon">C</span><div><p class="micro-label">INTEGRATION</p><h2>Canvas LMS</h2><p id="canvasSettingsText">Using local sample assignments. No login is required and no credentials are collected.</p></div>
+            <button class="primary-button" id="settingsConnection" type="button">Manage Canvas</button>
+          </section>
+          <section class="panel settings-panel">
+            <span class="settings-icon">◉</span><div><p class="micro-label">VOICE</p><h2>Speech controls</h2><p>Choose a system voice and decide whether JARVIS reads responses aloud.</p></div>
+            <label class="select-label">System voice<select id="voiceSelect"><option>Loading voices…</option></select></label>
+            <label class="toggle-row"><span>Read voice answers aloud</span><input id="speakReplies" type="checkbox" checked></label>
+          </section>
+          <section class="panel settings-panel wide security-panel">
+            <span class="settings-icon">◇</span><div><p class="micro-label">PRIVACY BY DESIGN</p><h2>Secrets stay server-side</h2><p>The demo is fully local. When integrations are enabled, API keys and Canvas tokens remain on the Node server and are excluded from Git. Browser storage only keeps your local planner and voice preference.</p></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="modal" id="connectionDialog" aria-labelledby="connectionTitle">
+    <button class="modal-close" id="closeConnection" type="button" aria-label="Close">×</button>
+    <span class="modal-icon">C</span>
+    <p class="eyebrow"><span></span> CANVAS CONNECTION</p>
+    <h2 id="connectionTitle">Choose how to run JARVIS.</h2>
+    <p class="modal-copy">Demo mode is ready immediately. Real Canvas access requires an institution-approved OAuth developer key on the server.</p>
+    <div class="connection-options">
+      <button class="connection-option recommended" id="useDemo" type="button"><span><small>RECOMMENDED</small><strong>Use safe demo data</strong><em>No account or setup required</em></span><b>→</b></button>
+      <button class="connection-option" id="connectRealCanvas" type="button"><span><small>OPTIONAL</small><strong>Connect real Canvas</strong><em id="realCanvasStatus">Checking server configuration…</em></span><b>↗</b></button>
+    </div>
+    <a class="demo-link" href="canvas-demo.html" target="_blank" rel="noreferrer">Preview the simulated Canvas dashboard →</a>
+  </dialog>
+
+  <dialog class="modal assignment-modal" id="assignmentDialog" aria-labelledby="detailTitle">
+    <button class="modal-close" id="closeAssignment" type="button" aria-label="Close">×</button>
+    <p class="eyebrow"><span></span> ASSIGNMENT BRIEF</p>
+    <h2 id="detailTitle">Assignment</h2>
+    <p class="modal-copy" id="detailDescription"></p>
+    <div class="detail-meta" id="detailMeta"></div>
+    <div class="detail-columns">
+      <div><h3>Requirements</h3><ul id="detailRequirements"></ul></div>
+      <div><h3>Rubric check</h3><ul id="detailRubric"></ul></div>
+    </div>
+    <div class="detail-actions">
+      <button class="secondary-button" id="detailSchedule" type="button">Generate study sessions</button>
+      <button class="primary-button" id="detailPlan" type="button">Ask JARVIS to build a plan <span>→</span></button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

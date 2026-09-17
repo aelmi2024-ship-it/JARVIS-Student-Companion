@@ -1,0 +1,264 @@
+{
+  "profile": {
+    "name": "Jordan Lee",
+    "initials": "JL",
+    "institution": "State University",
+    "program": "Computer Science",
+    "level": "Junior"
+  },
+  "courses": [
+    {
+      "id": "cs310",
+      "code": "CS 310",
+      "name": "Data Structures",
+      "color": "#e7f56b"
+    },
+    {
+      "id": "swe321",
+      "code": "SWE 321",
+      "name": "Software Engineering",
+      "color": "#8fe3cf"
+    },
+    {
+      "id": "stat344",
+      "code": "STAT 344",
+      "name": "Probability & Statistics",
+      "color": "#ff9c7d"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "a1",
+      "courseId": "cs310",
+      "title": "Balanced Trees Implementation",
+      "description": "Implement AVL insertion and rotations, then explain the time complexity of each operation.",
+      "dueOffsetDays": 1,
+      "dueTime": "23:59",
+      "points": 100,
+      "estimatedMinutes": 150,
+      "status": "in-progress",
+      "progress": 45,
+      "priority": "high",
+      "deliverable": "Source code, unit tests, and a short complexity analysis.",
+      "requirements": [
+        "Implement left and right rotations",
+        "Maintain height after insertion",
+        "Include normal, edge, and duplicate-value tests"
+      ],
+      "rubric": [
+        "Correct rotations and balancing",
+        "Readable structure and naming",
+        "Meaningful automated tests"
+      ]
+    },
+    {
+      "id": "a2",
+      "courseId": "swe321",
+      "title": "Sprint Retrospective",
+      "description": "Summarize the sprint outcome, identify one process bottleneck, and propose a measurable improvement.",
+      "dueOffsetDays": 3,
+      "dueTime": "17:00",
+      "points": 40,
+      "estimatedMinutes": 45,
+      "status": "not-started",
+      "progress": 0,
+      "priority": "medium",
+      "deliverable": "One-page retrospective in PDF format.",
+      "requirements": [
+        "Reference the sprint goal",
+        "Use evidence from the team board",
+        "Define one action for the next sprint"
+      ],
+      "rubric": [
+        "Specific evidence",
+        "Actionable reflection",
+        "Clear professional writing"
+      ]
+    },
+    {
+      "id": "a3",
+      "courseId": "stat344",
+      "title": "Probability Problem Set 4",
+      "description": "Solve conditional probability and Bayes theorem problems and show the reasoning for each answer.",
+      "dueOffsetDays": 3,
+      "dueTime": "23:59",
+      "points": 60,
+      "estimatedMinutes": 90,
+      "status": "not-started",
+      "progress": 0,
+      "priority": "medium",
+      "deliverable": "A single legible PDF with complete work.",
+      "requirements": [
+        "Show the probability model",
+        "Define events before calculating",
+        "Check each result is between zero and one"
+      ],
+      "rubric": [
+        "Correct setup",
+        "Complete reasoning",
+        "Accurate final values"
+      ]
+    },
+    {
+      "id": "a4",
+      "courseId": "swe321",
+      "title": "API Design Review",
+      "description": "Review a REST API contract for consistency, error handling, and accessibility of its documentation.",
+      "dueOffsetDays": 8,
+      "dueTime": "12:00",
+      "points": 75,
+      "estimatedMinutes": 80,
+      "status": "not-started",
+      "progress": 0,
+      "priority": "low",
+      "deliverable": "Annotated API specification and review memo.",
+      "requirements": [
+        "Check resource naming",
+        "Document expected error shapes",
+        "Recommend at least three improvements"
+      ],
+      "rubric": [
+        "Technical accuracy",
+        "Useful recommendations",
+        "Well-organized review"
+      ]
+    },
+    {
+      "id": "a5",
+      "courseId": "cs310",
+      "title": "Hashing Quiz",
+      "description": "Review collision resolution, load factor, and average-case complexity before the quiz.",
+      "dueOffsetDays": 3,
+      "dueTime": "09:00",
+      "points": 25,
+      "estimatedMinutes": 55,
+      "status": "not-started",
+      "progress": 0,
+      "priority": "low",
+      "deliverable": "In-class quiz preparation.",
+      "requirements": [
+        "Compare chaining and open addressing",
+        "Explain load factor",
+        "Practice tracing insert and search"
+      ],
+      "rubric": [
+        "Concept accuracy",
+        "Correct traces",
+        "Complexity reasoning"
+      ]
+    }
+  ],
+  "schedule": [
+    {
+      "id": "s1",
+      "dayOffset": 0,
+      "time": "09:00",
+      "title": "Data Structures",
+      "type": "class",
+      "location": "Engineering 201"
+    },
+    {
+      "id": "s2",
+      "dayOffset": 0,
+      "time": "11:30",
+      "title": "Open focus block",
+      "type": "focus",
+      "location": "90 minutes available"
+    },
+    {
+      "id": "s3",
+      "dayOffset": 0,
+      "time": "14:00",
+      "title": "Software Engineering",
+      "type": "class",
+      "location": "Innovation 105"
+    },
+    {
+      "id": "s4",
+      "dayOffset": 1,
+      "time": "13:30",
+      "title": "Study group",
+      "type": "event",
+      "location": "Library collaboration room"
+    },
+    {
+      "id": "s5",
+      "dayOffset": 2,
+      "time": "08:00",
+      "title": "Probability & Statistics",
+      "type": "class",
+      "location": "Science Hall 110"
+    }
+  ],
+  "gradebooks": [
+    {
+      "courseId": "cs310",
+      "categories": [
+        { "name": "Programming assignments", "weight": 35, "score": 91 },
+        { "name": "Quizzes", "weight": 20, "score": 84 },
+        { "name": "Midterm", "weight": 20, "score": 88 }
+      ],
+      "final": { "name": "Final exam", "weight": 25 }
+    },
+    {
+      "courseId": "swe321",
+      "categories": [
+        { "name": "Team project", "weight": 40, "score": 94 },
+        { "name": "Individual work", "weight": 25, "score": 89 },
+        { "name": "Participation", "weight": 15, "score": 96 }
+      ],
+      "final": { "name": "Final presentation", "weight": 20 }
+    },
+    {
+      "courseId": "stat344",
+      "categories": [
+        { "name": "Problem sets", "weight": 30, "score": 86 },
+        { "name": "Quizzes", "weight": 20, "score": 82 },
+        { "name": "Midterm", "weight": 25, "score": 79 }
+      ],
+      "final": { "name": "Final exam", "weight": 25 }
+    }
+  ],
+  "campusEvents": [
+    {
+      "id": "e1",
+      "dayOffset": 0,
+      "time": "18:30",
+      "durationMinutes": 90,
+      "title": "Engineering Build Night",
+      "category": "TECH & MAKING",
+      "location": "Innovation Lab",
+      "description": "A relaxed maker meetup with hardware, rapid prototypes, and peer project demos."
+    },
+    {
+      "id": "e2",
+      "dayOffset": 1,
+      "time": "17:00",
+      "durationMinutes": 75,
+      "title": "Internship Search Workshop",
+      "category": "CAREER",
+      "location": "Student Center 240",
+      "description": "Bring a resume and leave with a focused internship-search plan and recruiter-ready pitch."
+    },
+    {
+      "id": "e3",
+      "dayOffset": 2,
+      "time": "19:00",
+      "durationMinutes": 60,
+      "title": "Intramural Open Gym",
+      "category": "WELLBEING",
+      "location": "Recreation Center",
+      "description": "Drop-in basketball and volleyball with no team registration required."
+    },
+    {
+      "id": "e4",
+      "dayOffset": 3,
+      "time": "16:30",
+      "durationMinutes": 60,
+      "title": "AI Guest Speaker",
+      "category": "GUEST SPEAKER",
+      "location": "Research Hall 163",
+      "description": "A working ML engineer discusses evaluation, reliability, and early-career paths in applied AI."
+    }
+  ]
+}

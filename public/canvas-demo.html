@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Simulated Canvas · JARVIS Demo</title>
+  <link rel="stylesheet" href="canvas-demo.css">
+  <script src="canvas-demo.js" defer></script>
+</head>
+<body>
+  <header class="canvas-header">
+    <a class="canvas-brand" href="index.html"><span>SU</span><strong>State University · Canvas</strong></a>
+    <span class="demo-banner">SIMULATED DATA · SHOWCASE ONLY</span>
+  </header>
+  <div class="demo-notice"><strong>Demo environment:</strong> This page is a local Canvas simulation. It does not collect credentials or contact a university system.</div>
+  <div class="canvas-layout">
+    <aside class="canvas-nav" aria-label="Canvas demo navigation">
+      <div class="canvas-user"><span id="canvasInitials">JL</span><strong id="canvasUser">Jordan Lee</strong></div>
+      <a class="active" href="#dashboard">▦ Dashboard</a>
+      <a href="#courses">▤ Courses</a>
+      <a href="#todo">✓ To Do</a>
+      <a href="index.html">← Return to JARVIS</a>
+    </aside>
+    <main id="dashboard">
+      <p class="canvas-eyebrow">ACADEMIC DASHBOARD</p>
+      <h1>Welcome back, <span id="canvasFirstName">Jordan</span>.</h1>
+      <p class="canvas-subtitle">Here is a simulated view of your active courses and upcoming work.</p>
+      <section class="course-grid" id="courses" aria-label="Demo courses"></section>
+    </main>
+    <aside class="todo-panel" id="todo">
+      <div class="todo-title"><h2>To Do</h2><span id="todoCount">0</span></div>
+      <div id="todoList"></div>
+    </aside>
+  </div>
+</body>
+</html>
