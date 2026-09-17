@@ -1,0 +1,26 @@
+{
+  "name": "jarvis-student-companion",
+  "version": "2.0.0",
+  "private": true,
+  "description": "A voice-first student dashboard with a Canvas demo, smart planning, and optional AI assistance.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check public/app.js && node --check src/ai.js && node --check src/canvas.js && node --check src/config.js && node --check src/demo-assistant.js && node --check src/http.js",
+    "test": "node --test",
+    "verify": "npm run check && npm test"
+  },
+  "keywords": [
+    "canvas-lms",
+    "student-dashboard",
+    "voice-assistant",
+    "academic-planner",
+    "nodejs"
+  ],
+  "license": "MIT"
+}
